@@ -11,7 +11,7 @@ ___
 ### Setup:
 **At the moment there are only 2 things you need to change:**
 * The token in the annoyobot.py file
-* the guildId in commands.py and botEvents.py
+* The guildId in commands.py and botEvents.py
 ___
 ### Discord Hack Week:
 
