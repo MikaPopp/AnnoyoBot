@@ -14,7 +14,6 @@ ___
 * the guildId in commands.py and botEvents.py
 ___
 ### Discord Hack Week:
-**Feel free to join the hack week:**
 
 **Website:** [blog.discordapp.com](https://blog.discordapp.com/discord-community-hack-week-build-and-create-alongside-us-6b2a7b7bba33)
 
