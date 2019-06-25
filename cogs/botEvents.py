@@ -9,6 +9,8 @@ guildId = 378219558248644608
 urlDoge = "https://vignette.wikia.nocookie.net/epicness/images/0/05/Doge.png/revision/latest?cb=20180616043904"
 urlCate = "https://i.kym-cdn.com/photos/images/original/000/581/251/5af.jpg"
 urlPando = "https://cms.qz.com/wp-content/uploads/2018/05/china-pandas-eyes-turned-white-in-sichuan-2018-e1525405988661.jpg?quality=75&strip=all&w=410&h=230.67037692891472"
+urlLennyFace = "https://i.kym-cdn.com/entries/icons/original/000/011/764/LennyFace.jpg"
+urlBlahBlah = "https://blogs.constantcontact.com/wp-content/uploads/2012/02/post-to-your-facebook-page-693x378.jpg"
 randomEntry = json.loads(open("json/names.json").read())
 randomThought = json.loads(open("json/shower.json").read())
 
@@ -21,7 +23,7 @@ class botEvents(commands.Cog):
     async def on_ready(self):
         await self.annoyo.change_presence(status = discord.Status.do_not_disturb, activity=discord.Game(name = "annoys since 2019"))
         self.eventLoop.start()
-        print("ready to annoy")
+        print("Ready to annoy")
 
     @commands.Cog.listener()
     async def on_member_join(self, user : discord.User):
@@ -33,20 +35,19 @@ class botEvents(commands.Cog):
             colour = discord.Colour.red()
         )
         embed.set_footer(text = "AnnoyoBot - Version: 0.0.1")
-        embed.set_image(url = "https://blogs.constantcontact.com/wp-content/uploads/2012/02/post-to-your-facebook-page-693x378.jpg")
-        embed.set_thumbnail(url = "https://i.kym-cdn.com/entries/icons/original/000/011/764/LennyFace.jpg")
+        embed.set_image(url = urlBlahBlah)
+        embed.set_thumbnail(url = urlLennyFace)
         embed.add_field(name = "Rules", value = "The rules are written down in the text channel 'rules', by getting any role on the server you accept them.", inline = False)
         embed.add_field(name = "Selfrole", value = "Click on any emoji to get the corresponding role.", inline = False)
         embed.add_field(name = "Have fun", value = "You might have already seen I'm a bot, but still!! I hope you have fun on the server, if not it seems to be a 'you' problem.", inline = False)
         await user.send(embed = embed)
-        await user.add_roles()
 
 #///////////////////// Random event loop /////////////////////
     @tasks.loop(seconds = 180)
     async def eventLoop(self):
         newName = randomEntry["groupNames"][randint(0, 48)]
         thought = randomThought["thoughts"][randint(0, 43)]
-        currentEvent = 5
+        currentEvent = randint(1, 5)
         if currentEvent == 1:
             embed = discord.Embed (
                 titel = "Doge fact!",
@@ -58,7 +59,7 @@ class botEvents(commands.Cog):
             textChannels = guild.text_channels
             randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
             url = "https://some-random-api.ml/facts/dog"
-            r = requests.get(url=url)
+            r = requests.get(url = url)
             json = r.json()
             fact = json["fact"]
             embed.description = fact
@@ -90,7 +91,7 @@ class botEvents(commands.Cog):
             textChannels = guild.text_channels
             randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
             url = "https://some-random-api.ml/facts/panda"
-            r = requests.get(url=url)
+            r = requests.get(url = url)
             json = r.json()
             fact = json["fact"]
             embed.description = fact
@@ -105,6 +106,17 @@ class botEvents(commands.Cog):
             textChannels = guild.text_channels
             randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
             await randChannel.send(thought, tts = True)
+
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, error):
+        embed = discord.Embed (
+            titel = "Support's on the way!",
+            description = "I couldn't remember any command like this, I swear... I don't have alzheimer!!",
+            colour = discord.Colour.purple()
+        )
+        embed.set_thumbnail(url = urlLennyFace)
+        if isinstance(error, commands.CommandNotFound):
+            await ctx.send(embed = embed)
 
 def setup(annoyo):
     annoyo.add_cog(botEvents(annoyo))

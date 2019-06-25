@@ -5,8 +5,8 @@ from random import randint
 import asyncio
 import requests
 
-urlLennyFace = "https://i.kym-cdn.com/entries/icons/original/000/011/764/LennyFace.jpg"
 guildId = 378219558248644608
+urlLennyFace = "https://i.kym-cdn.com/entries/icons/original/000/011/764/LennyFace.jpg"
 
 class botMute(commands.Cog):
 

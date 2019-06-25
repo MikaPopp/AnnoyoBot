@@ -5,12 +5,13 @@ import os
 token = "token here"
 
 annoyo = commands.Bot(command_prefix = "!")
+annoyo.remove_command("help") 
 
 @annoyo.command()
 @commands.has_any_role("Admin", "Owner")
 async def load(ctx, extension):
     annoyo.load_extension(f"cogs.{extension}")
-    print("loaded cog")
+    print("loaded cogs")
 
 @annoyo.command()
 @commands.has_any_role("Admin", "Owner")
