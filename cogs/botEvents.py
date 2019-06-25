@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands, tasks
+import json
 from random import randint
 import asyncio
 import requests
@@ -8,6 +9,8 @@ guildId = 378219558248644608
 urlDoge = "https://vignette.wikia.nocookie.net/epicness/images/0/05/Doge.png/revision/latest?cb=20180616043904"
 urlCate = "https://i.kym-cdn.com/photos/images/original/000/581/251/5af.jpg"
 urlPando = "https://cms.qz.com/wp-content/uploads/2018/05/china-pandas-eyes-turned-white-in-sichuan-2018-e1525405988661.jpg?quality=75&strip=all&w=410&h=230.67037692891472"
+randomEntry = json.loads(open("json/names.json").read())
+randomThought = json.loads(open("json/shower.json").read())
 
 class botEvents(commands.Cog):
 
@@ -38,10 +41,12 @@ class botEvents(commands.Cog):
         await user.send(embed = embed)
         await user.add_roles()
 
-#///////////////////// Random fact loop /////////////////////
-    @tasks.loop(seconds = 120)
+#///////////////////// Random event loop /////////////////////
+    @tasks.loop(seconds = 180)
     async def eventLoop(self):
-        currentEvent = randint(1, 3)
+        newName = randomEntry["groupNames"][randint(0, 48)]
+        thought = randomThought["thoughts"][randint(0, 43)]
+        currentEvent = 5
         if currentEvent == 1:
             embed = discord.Embed (
                 titel = "Doge fact!",
@@ -69,7 +74,7 @@ class botEvents(commands.Cog):
             textChannels = guild.text_channels
             randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
             url = "https://some-random-api.ml/facts/cat"
-            r = requests.get(url=url)
+            r = requests.get(url = url)
             json = r.json()
             fact = json["fact"]
             embed.description = fact
@@ -90,6 +95,16 @@ class botEvents(commands.Cog):
             fact = json["fact"]
             embed.description = fact
             await randChannel.send(embed = embed) 
+        elif currentEvent == 4:
+            guild = discord.utils.find(lambda g : g.id == guildId, self.annoyo.guilds)
+            textChannels = guild.text_channels
+            randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
+            await randChannel.edit(name = newName)
+        elif currentEvent == 5:
+            guild = discord.utils.find(lambda g : g.id == guildId, self.annoyo.guilds)
+            textChannels = guild.text_channels
+            randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
+            await randChannel.send(thought, tts = True)
 
 def setup(annoyo):
     annoyo.add_cog(botEvents(annoyo))
