@@ -4,9 +4,12 @@ from discord.ext.commands.cooldowns import BucketType
 from random import randint
 import asyncio
 import requests
+import json
 
-guildId = 378219558248644608
 urlLennyFace = "https://i.kym-cdn.com/entries/icons/original/000/011/764/LennyFace.jpg"
+settings = json.loads(open("json/settings.json").read())
+guildId = settings["settings"]["guildId"]
+rolenamePending = settings["settings"]["rolenamePending"]
 
 class botMute(commands.Cog):
 
@@ -19,7 +22,7 @@ class botMute(commands.Cog):
     async def mute(self, ctx, member : discord.Member):
         guild = discord.utils.find(lambda g : g.id == guildId, self.annoyo.guilds)
         roleMute = discord.utils.get(guild.roles, name = "muted")
-        rolePending = discord.utils.get(guild.roles, name = "pending")
+        rolePending = discord.utils.get(guild.roles, name = rolenamePending)
         author = ctx.message.author
         decision = randint(1, 100)
         arsedMeter = randint(0, 1)

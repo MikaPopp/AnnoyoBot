@@ -1,8 +1,10 @@
 import discord
 from discord.ext import commands
 import os
+import json
 
-token = "token here"
+settings = json.loads(open("json/settings.json").read())
+token = settings["settings"]["token"]
 
 annoyo = commands.Bot(command_prefix = "!")
 annoyo.remove_command("help") 

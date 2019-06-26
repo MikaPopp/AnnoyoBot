@@ -1,0 +1,9 @@
+{ "settings":
+    {
+        "guildId" : server id here,
+        "rolenamePending" : "role name here",
+        "channelIdSelfrole" : selfrole channelid here,
+        "rolenameNormie" : "normie role name here",
+        "token" : "token here"
+    }
+}
