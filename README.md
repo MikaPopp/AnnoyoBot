@@ -20,15 +20,14 @@ ___
 **¹Chance to use one of those commands is 50%, because AnnoyoBot is selfish**
 ___
 ### Setup:
-**At the moment there are only 3 things you need to change:**
-* Swap the **token** in the **annoyobot.py** file
-* Exchange the **guildId** in **commandMute.py** and **botEvents.py**
-* At last change the name for **roleMute** and **rolePending* in **commandMute.py** or on your **server**
+**There are things you need to setup:**
+* In the json folder is a file named "settings.json", just fill out the stuff
+* Second, you can change the "emojiNormie" emoji in the "botEvents.py" 
 ___
 ### Need to Add (asap):
 * Self-role with reactions
-  * Reason: otherwise !mute role apply is useless (else admins have to give role after 24h)
-  * Add a test server for people to test / have fun  
+  * Add a test server for people to test / have fun 
+  * Meme command, since we all like memes 
 ___
 
 ### Discord Hack Week:
