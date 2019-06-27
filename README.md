@@ -6,7 +6,7 @@ In the next two sections of this **readme.md** you can learn about the stuff thi
 ___
 ### Features:
 * !mute [@user]¹
-  * 99% chance to remove all roles from you and get you a role with that you are basically muted & deafened for 24 hours.
+  * 99% chance to remove all roles from you and give you a role that hides all text and voice channels for 24h or with 1% probability the user you targeted 
 * !pat [@user]¹
   * A random anime pat gif will be sent 
 * !hug [@user]¹
