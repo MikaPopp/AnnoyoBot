@@ -7,6 +7,7 @@
         "token" : "token here",
         "prefix" : "!",
 
+        "subreddit" : "dankmemes",
         "clientId" : "reddit clientid here",
         "clientSecret" : "reddit client secret here",
         "username" : "reddit username here",

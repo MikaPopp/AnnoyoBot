@@ -27,7 +27,7 @@ class botUseless(commands.Cog):
         )
         arsedMeter = randint(0, 1)
         if arsedMeter == 1:
-            memeSubmissions = reddit.subreddit("dankmemes").new()
+            memeSubmissions = reddit.subreddit(settings["settings"]["subreddit"]).new()
             postToPick = randint(1, 10)
             for i in range(0, postToPick):
                 submission = next(x for x in memeSubmissions)
