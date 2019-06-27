@@ -1,33 +1,31 @@
 # AnnoyoBot
 ### About:
-This bot is a WIP for the Discord Hack Week and the name speaks for itself he tries to be annoying to everyone. I'll try to add as many things i can come up with that is annoying. A server where you can play with the bot will be posted here soon, so feel free to join it later and/or host it on your own server, if you need help with the setup on the bottom is a setup guide.
+Here is my bot submission for the Discord Hack Week, I tried to come up with as many things I could imagine, that fits to this bot. You might have noticed the name of this bot speaks for itself **(annoyo = annoying)**. Since I'm applying for the section "shitpost" and the description of it was "Something silly or off-the-wall" I tried to make this bot something unique or maybe you will never see, because who wants a bot that sometimes doesn't exectue your commands, just because it is too selfish?
+
+In the next two sections of this **readme.md** you can learn about the stuff this bot can do and how to setup it up, if you want to use/try it for yourself. Special thanks to anyone that helped me to come up with ideas/features for this bot and where I can improve stuff.  
 ___
 ### Features:
 * !mute [@user]¹
   * 99% chance to remove all roles from you and get you a role with that you are basically muted & deafened for 24 hours.
-* !useless¹
-  * Will send a useless website into the text channel
 * !pat [@user]¹
   * A random anime pat gif will be sent 
-* !hug [user]¹
+* !hug [@user]¹
   * A random anime hug gif will be sent
+* !useless¹
+  * Will send a useless website into the text channel
+* !meme¹
+  * Get a random meme from r/dankmemes (new section)
 * !help [optional: command]
-  * No 50% chance to activate this command, but the commands shown are always random and 3 out of 4 are fake commands     
+  * No 50% chance to activate this command, but the commands shown are always random and 3 out of 4 are fake commands 
 * Automated events
   * Send random fact (dog, cat, panda), rename a random text channel or send a shower thought as tts (3 mins cooldown)
-
 
 **¹Chance to use one of those commands is 50%, because AnnoyoBot is selfish**
 ___
 ### Setup:
 **There are things you need to setup:**
 * In the json folder is a file named "settings.json", just fill out the stuff
-* Second, you can change the "emojiNormie" emoji in the "botEvents.py" 
-___
-### Need to Add (asap):
-* Self-role with reactions
-  * Add a test server for people to test / have fun 
-  * Meme command, since we all like memes 
+* Second, you can change the "emojiNormie" emoji in the "botEvents.py" (selfrole emoji) 
 ___
 
 ### Discord Hack Week:
