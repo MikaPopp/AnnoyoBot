@@ -2,8 +2,15 @@
     {
         "guildId" : server id here,
         "rolenamePending" : "role name here",
-        "channelIdSelfrole" : selfrole channelid here,
-        "rolenameNormie" : "normie role name here",
-        "token" : "token here"
+        "channelIdSelfrole" : selfrole channel id here,
+        "rolenameNormie" : "normal user role name here",
+        "token" : "token here",
+        "prefix" : "!",
+
+        "clientId" : "reddit clientid here",
+        "clientSecret" : "reddit client secret here",
+        "username" : "reddit username here",
+        "password" : "reddit password here",
+        "userAgent" : "prawdiscordv1"
     }
 }

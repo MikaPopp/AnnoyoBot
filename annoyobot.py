@@ -6,7 +6,7 @@ import json
 settings = json.loads(open("json/settings.json").read())
 token = settings["settings"]["token"]
 
-annoyo = commands.Bot(command_prefix = "!")
+annoyo = commands.Bot(command_prefix = settings["settings"]["prefix"])
 annoyo.remove_command("help") 
 
 @annoyo.command()
