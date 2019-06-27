@@ -13,7 +13,7 @@ reddit = praw.Reddit (client_id = settings["settings"]["clientId"],
                       user_agent = settings["settings"]["userAgent"])
 
 
-class botUseless(commands.Cog):
+class botMeme(commands.Cog):
 
     def __init__(self, annoyo):
         self.annoyo = annoyo
@@ -22,7 +22,7 @@ class botUseless(commands.Cog):
     @commands.command()
     async def meme(self, ctx):
         embed = discord.Embed (
-            titel = "Useless command",
+            titel = "meme command",
             colour = discord.Colour.red()
         )
         arsedMeter = randint(0, 1)
@@ -39,4 +39,4 @@ class botUseless(commands.Cog):
             await ctx.send(embed = embed)
 
 def setup(annoyo):
-    annoyo.add_cog(botUseless(annoyo))
+    annoyo.add_cog(botMeme(annoyo))
