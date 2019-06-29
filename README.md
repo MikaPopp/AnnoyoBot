@@ -16,16 +16,19 @@ ___
 * !meme¹
   * Get a random meme from r/dankmemes (new section)
 * !help [optional: command]
-  * No 50% chance to activate this command, but the commands shown are always random and 3 out of 4 are fake commands 
-* Automated events
-  * Send random fact (dog, cat, panda), rename a random text channel or send a shower thought as tts (3 mins cooldown)
+  * No 50% chance to activate this command, but the commands shown are always random and 3 out of 4 are fake commands, some of the fake commands even have a help page to fool the user!
+* !someone
+  * Tags a random user on the server, no 50% chance, since it's there to annoy others :^) (1h cooldown for each user respectively)  
+* **Automated events**
+  * Send random fact (dog, cat, panda), rename a random text channel or send a shower thought as tts (3mins cooldown)
+  * Mentioning a random user and send him a Pepo, because we all need Pepo in our life (greate for profile pictures) (1h cooldown)
 
 **¹Chance to use one of those commands is 50%, because AnnoyoBot is selfish**
 ___
 ### Setup:
 **There are things you need to setup:**
-* In the json folder is a file named "settings.json", just fill out the stuff
-* Second, you can change the "emojiNormie" emoji in the "botEvents.py" (selfrole emoji) 
+* In the **json folder** is a file named **settings.json**, just fill out the stuff
+* Second, you can change the **emojiNormie** emoji in the **botEvents.py** (selfrole emoji) 
 ___
 
 ### Discord Hack Week:
