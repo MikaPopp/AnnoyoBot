@@ -14,8 +14,8 @@ class botHelp(commands.Cog):
 #///////////////////// command /////////////////////
     @commands.command()
     async def help(self, ctx, command = None):
-        fakeCommands = ["purge", "ban", "kick", "cookie", "profile", "danbooru", "meme", "avatar", "coinflip", "votekick", "ship"]
-        realCommands = ["mute", "useless", "pat", "hug"]
+        fakeCommands = ["purge", "ban", "kick", "cookie", "profile", "danbooru", "pepo", "avatar", "coinflip", "votekick", "ship"]
+        realCommands = ["mute", "useless", "pat", "hug", "meme", "someone"]
         embed = discord.Embed (
             titel = "Kick command",
             colour = discord.Colour.red()
@@ -45,7 +45,15 @@ class botHelp(commands.Cog):
             await ctx.send(embed = embed)
         elif command == "hug":
             embed.description = "If you love someone, hug him!"
-            embed.add_field(name = "!hug [@user]", value = "If you are at this point you can also hug me ( ͡~ ͜ʖ ͡°)", inline = False)
+            embed.add_field(name = "!hug [@user]", value = "If you are reading this, you can also hug me ( ͡~ ͜ʖ ͡°)", inline = False)
+            await ctx.send(embed = embed)
+        elif command == "meme":
+            embed.description = "freshest and newest dankmemes!"
+            embed.add_field(name = "!meme", value = "Well you sure know what a meme is, save them before it's too late.", inline = False)
+            await ctx.send(embed = embed)
+        elif command == "someone":
+            embed.description = "Who is this someone ? Find it out!"
+            embed.add_field(name = "!someone", value = "I'm pretty sure someone is getting annoyed...", inline = False)
             await ctx.send(embed = embed)
         elif command == "kick":
             embemd.description = "This might be it, try it!"

@@ -21,7 +21,7 @@ class botUseless(commands.Cog):
         embed.set_thumbnail(url = urlLennyFace)
         if arsedMeter == 1:
             randomUseless = json.loads(open("json/useless.json").read())
-            website = randomUseless["sites"][randint(0, 44)]
+            website = randomUseless["sites"][randint(0, len(randomUseless["sites"]) - 1)]
             embed.description = website
             await ctx.send(embed = embed)
         elif arsedMeter == 0:

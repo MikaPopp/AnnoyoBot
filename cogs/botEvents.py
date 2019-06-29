@@ -14,6 +14,7 @@ urlBlahBlah = "https://blogs.constantcontact.com/wp-content/uploads/2012/02/post
 randomEntry = json.loads(open("json/names.json").read())
 randomThought = json.loads(open("json/shower.json").read())
 settings = json.loads(open("json/settings.json").read())
+pepos = json.loads(open("json/pepos.json").read())
 guildId = settings["settings"]["guildId"]
 channelIdSelfrole = settings["settings"]["channelIdSelfrole"]
 rolenameNormie = settings["settings"]["rolenameNormie"] 
@@ -28,6 +29,7 @@ class botEvents(commands.Cog):
     async def on_ready(self):
         await self.annoyo.change_presence(status = discord.Status.do_not_disturb, activity=discord.Game(name = "annoys since 2019"))
         self.eventLoop.start()
+        self.eventTwoLoop.start()
         print("Ready to annoy")
         embed = discord.Embed (
             titel = "Selfrole",
@@ -57,11 +59,30 @@ class botEvents(commands.Cog):
         await user.add_roles(rolePending)
 
 #///////////////////// Random event loop /////////////////////
+    @tasks.loop(seconds = 3600)
+    async def eventTwoLoop(self):
+        guild = discord.utils.find(lambda g : g.id == guildId, self.annoyo.guilds)
+        memberList = guild.members
+        randMember = memberList[randint(0, len(memberList) - 1)]
+        while randMember.bot == True:
+            randMember = memberList[randint(0, len(memberList) - 1)]
+        embed = discord.Embed (
+            titel = "Pepo event!",
+            colour = discord.Colour.red()
+        )
+        embed.set_image(url = pepos["pepos"][randint(0, len(pepos["pepos"]) - 1)])
+        embed.description = f"<@{randMember.id}> you need the fitting pepo in your life, right now! Here is one, feel free to set it as profile picture."
+        textChannels = guild.text_channels
+        randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
+        while randChannel.id == channelIdSelfrole:
+            randChannel = self.annoyo.get_channel(textChannels[randint(0, len(textChannels) - 1)].id)
+        await randChannel.send(embed = embed)
+
     @tasks.loop(seconds = 180) 
     async def eventLoop(self):
         guild = discord.utils.find(lambda g : g.id == guildId, self.annoyo.guilds)
-        newName = randomEntry["groupNames"][randint(0, 48)]
-        thought = randomThought["thoughts"][randint(0, 43)]
+        newName = randomEntry["groupNames"][randint(0, len(randomEntry["groupNames"]) - 1)]
+        thought = randomThought["thoughts"][randint(0, len(randomThought["thoughts"]) - 1)]
         currentEvent = randint(1, 5)
         if currentEvent == 1:
             embed = discord.Embed (
