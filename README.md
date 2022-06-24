@@ -1,4 +1,5 @@
 # AnnoyoBot
+### Support completely stopped since the Discord Hack Week ended.
 ### About:
 Here is my bot submission for the Discord Hack Week, I tried to come up with as many things I could imagine, that fits to this bot. You might have noticed the name of this bot speaks for itself **(annoyo = annoying)**. Since I'm applying for the section "shitpost" and the description of it was "Something silly or off-the-wall" I tried to make this bot something unique or maybe you will never see, because who wants a bot that sometimes doesn't exectue your commands, just because it is too selfish?
 
